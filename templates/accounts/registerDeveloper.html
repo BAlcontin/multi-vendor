@@ -11,9 +11,9 @@
     <div class="page-banner-content">
       <ul class="breadcrumb">
         <li><a href="#">Home</a></li>
-        <li class="active">Register as Customer</li>
+        <li class="active">Register as Developer</li>
       </ul>
-      <h2 class="title">Registration for <span>Customer</span></h2>
+      <h2 class="title">Registration for <span>Developer</span></h2>
     </div>
     <!-- Page Banner End -->
   </div>
@@ -49,7 +49,7 @@
 
           <!-- Form Wrapper Start -->
 
-          <form action="{% url 'registerUser'%}" method="POST">
+          <form action="{% url 'registerDeveloper'%}" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             <div class="row">
               <!-- Register & Login Images Start -->
@@ -61,6 +61,16 @@
               <div class="col-md-6">
                 <!-- Form Wrapper Start -->
                 <div class="single-form"><label>Last Name</label>{{form.last_name}}</div>
+                <!-- Form Wrapper End -->
+              </div>
+              <div class="col-md-6">
+                <!-- Form Wrapper Start -->
+                <div class="single-form"><label>Page Name</label>{{dev_form.developer_name}}</div>
+                <!-- Form Wrapper End -->
+              </div>
+              <div class="col-md-6">
+                <!-- Form Wrapper Start -->
+                <div class="single-form"><label>Page Banner</label>{{dev_form.developer_banner}}</div>
                 <!-- Form Wrapper End -->
               </div>
               <div class="col-md-6">
@@ -83,6 +93,7 @@
                 <div class="single-form"><label>Confirm Password</label>{{form.confirm_password}}</div>
                 <!-- Form Wrapper End -->
               </div>
+
               <div class="col-md-6">
                 <ul class="errorlist" style="margin-top: 20px">
                   {% for field in form %} {% if field.errors %} {% for error in field.errors %}
