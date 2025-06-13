@@ -113,13 +113,21 @@
 
         <!-- Header Sing In & Up Start -->
         <div class="dropdown">
+          {% if user.is_authenticated %}
+          <div class="header-sign-in-up d-none d-lg-block">
+            <ul>
+              <li><a class="sign-up" href="{% url 'myAccount'%}">My Account</a></li>
+            </ul>
+          </div>
+          {% else %}
           <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">My Account</button>
           <ul class="dropdown-menu dropdown-menu-dark">
-            <li><i class="bi bi-person-lock"></i><a class="dropdown-item" href="#">All Login</a></li>
+            <li><i class="bi bi-person-lock"></i><a class="dropdown-item" href="{% url 'login'%}">All Login</a></li>
             <li><hr class="dropdown-divider" /></li>
             <li><a class="dropdown-item" href="{% url 'registerUser'%}">Customer Register</a></li>
             <li><a class="dropdown-item" href="{% url 'registerDeveloper'%}">Developer Register</a></li>
           </ul>
+          {% endif %}
         </div>
         <!-- Header Sing In & Up End -->
 
