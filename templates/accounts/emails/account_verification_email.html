@@ -1,0 +1,13 @@
+{% autoescape off %}
+
+<!--Email verification-->
+Hi {{user.first_name}}
+
+<!--Email link-->
+Please click on below link to confirm your registration.
+
+<!--Email link-->
+http: http://{{domain}}{% url 'activate' uidb64=uid token=token %}
+
+<!--End of email verification-->
+{% endautoescape %}
